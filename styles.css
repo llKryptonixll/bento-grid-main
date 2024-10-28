@@ -1,0 +1,279 @@
+:root {
+    --purple100: hsl(254, 88%, 90%);
+    --purple500: hsl(256, 67%, 59%);
+    --yellow100: hsl(31, 66%, 93%);
+    --yellow500: hsl(39, 100%, 71%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 7%);
+    --base_font_size: 18px;
+    --item_padding: 1.5rem;
+}
+
+@font-face {
+    font-family: "DMSans";
+    src: url("/assets/fonts/static/DMSans-Regular.ttf");
+}
+
+/* css reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 0.9;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    font-size: var(--base_font_size);
+    font-family: "DMSans", sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    margin: 0;
+}
+
+/* styling */
+.page-wrapper {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.page-header {
+    display: none;
+}
+
+.main-container {
+    display: grid;
+    padding: 2rem;
+    gap: 2rem;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 60px;
+    min-height: 800px;
+    max-width: 1100px;
+    width: 100%;
+    grid-template-areas:
+        "item1 item2 item2 item3"
+        "item1 item2 item2 item3"
+        "item1 item2 item2 item3"
+        "item1 item2 item2 item3"
+        "item1 item5 item6 item3"
+        "item4 item5 item6 item3"
+        "item4 item5 item6 item3"
+        "item4 item7 item8 item8"
+        "item4 item7 item8 item8"
+        "item4 item7 item8 item8"
+    ;
+}
+
+.item {
+    background-color: rgb(175, 131, 131);
+    padding: var(--item_padding);
+    display: grid;
+    gap: 1em;
+    align-content: center;
+    justify-items: center;
+    border-radius: 0.6em;
+}
+
+.item1 {
+    grid-area: item1;
+    background-color: var(--yellow100);
+    font-weight: bold;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+}
+.item1 p i {
+    color: var(--purple500);
+}
+
+.item2 {
+    grid-area: item2;
+    text-align: center;
+    background-color: var(--purple500);
+    color: var(--white);
+}
+.item2 img {
+    max-width: 200px;
+}
+.item2 .main-text {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    font-weight: bold;
+}
+.item2 .main-text span {
+    color: var(--yellow500);
+}
+
+.item3 {
+    grid-area: item3;
+    background-color: var(--purple100);
+    overflow: hidden;
+    position: relative;
+    padding-right: 0;
+    padding-left: var(--item_padding);
+    padding-top: var(--item_padding);
+    padding-bottom: var(--item_padding);
+}
+.item3 .head-text {
+    font-weight: bold;
+}
+.item3 .bottom-text {
+    font-size: 1.3rem;
+}
+.item3 img {
+    height: 320px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.item4 {
+    grid-area: item4;
+    background-color: var(--yellow500);
+    font-weight: bold;
+    align-content: normal;
+    align-items: center;
+}
+.item4 p {
+    margin: 0;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+}
+
+.item5 {
+    grid-area: item5;
+    background-color: rgb(245, 245, 245);
+}
+
+.item6 {
+    grid-area: item6;
+    background-color: var(--yellow500);
+    overflow: hidden;
+    position: relative;
+}
+.item6 p {
+    margin-top: 5rem;
+    font-weight: bold;
+}
+
+.item7 {
+    grid-area: item7;
+    background-color: rgb(245, 245, 245);
+}
+.item7 p span:nth-child(1) {
+    font-size: 3rem;
+    font-weight: bold;
+}
+.item7 p span:nth-child(3) {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.item8 {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-area: item8;
+    background-color: var(--purple500);
+}
+.item8 p {
+    color: var(--white);
+    font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        grid-auto-rows: auto;
+        grid-template-areas:
+            "item1 item1 item2 item2"
+            "item1 item1 item2 item2"
+            "item3 item3 item4 item4"
+            "item3 item3 item4 item4"
+            "item5 item5 item6 item6"
+            "item5 item5 item6 item6"
+            "item7 item7 item8 item8"
+            "item7 item7 item8 item8"
+        ;
+    }
+    .item3 {
+        padding: var(--item_padding);
+        text-align: center;
+    }
+    .item3 img {
+        height: auto;
+    }
+    .item6  {
+        justify-items: left;
+        padding-bottom: 0;
+        padding-left: var(--item_padding);
+        padding-right: var(--item_padding);
+        padding-top: var(--item_padding);
+    }
+    .item6 img {
+        max-width: 200px;
+    }
+    .item6 p {
+        margin-top: 0;
+    }
+    .item8 {
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-areas:
+            "item2"
+            "item5"
+            "item6"
+            "item3"
+            "item8"
+            "item7"
+            "item1"
+            "item4"
+        ;
+    }
+    .item1 img {
+        max-width: 200px;
+        justify-self: start;
+    }
+    .item4 img {
+        max-width: 200px;
+        justify-self: start;
+    }
+    .item7 {
+        justify-items: start;
+    }
+    .item7 img {
+        max-width: 200px;
+    }
+
+    .item8 p {
+        font-size: 1.8rem;
+    }
+    .item8 img, .item8 p {
+        max-width: 200px;
+    }
+}
